@@ -1,0 +1,16 @@
+{
+  "development": {
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "tintas"
+  },
+  "production": {
+    "host": "prodhost",
+    "port": 5432,
+    "username": "produser",
+    "password": "prodpass",
+    "database": "tintas"
+  }
+}

@@ -1,0 +1,28 @@
+# Diretórios de build/output
+dist/
+build/
+
+# Dependências
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos de ambiente
+*.env
+
+# Arquivos do TypeScript
+*.tsbuildinfo
+
+# Diretórios do editor
+.vscode/
+.idea/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+dbconfig.json
