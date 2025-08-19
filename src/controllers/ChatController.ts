@@ -19,7 +19,7 @@ export class ChatController {
 
             const response = await this.chatService.ask(question);
 
-            res.status(200).json({ response });
+            res.status(200).json(response);
         } catch (error) {
             console.error('Error in ChatController:', error);
             res.status(500).json({ error: 'Internal server error' });
