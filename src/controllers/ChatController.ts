@@ -10,14 +10,19 @@ export class ChatController {
 
     public ask = async (req: Request, res: Response): Promise<void> => {
         try {
-            const { question } = req.body;
+            const { question, sessionId } = req.body;
 
             if (!question) {
                 res.status(400).json({ error: 'Question is required' });
                 return;
             }
 
-            const response = await this.chatService.ask(question);
+            if (!sessionId) {
+                res.status(400).json({ error: 'Session ID is required' });
+                return;
+            }
+
+            const response = await this.chatService.ask(question, sessionId);
 
             res.status(200).json(response);
         } catch (error) {
