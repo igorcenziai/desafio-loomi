@@ -1,7 +1,9 @@
 export interface ProductFilters {
-  nome?: string;
-  descricao?: string;
-  preco?: number;
-  categoria?: string;
-  features?: string[];
+nome?: string;
+cor?: string;
+tipo_parede?: string;
+ambiente?: string;
+acabamento?: string;
+features?: string[];
+linha?: string;
 }
