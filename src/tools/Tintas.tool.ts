@@ -33,10 +33,8 @@ export const description = `
 
 async function main() {
     try {
-        console.log("Iniciando o servidor MCP...")
-
         const server = new McpServer({
-            name: "Product Filter Service",
+            name: "Product Filter Tool",
             version: "1.0.0",
         })
 
