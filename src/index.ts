@@ -1,13 +1,15 @@
 import express from 'express';
 import cors from 'cors';
 import Chatrouter from './routes/index.js';
+import { setupSwagger } from './swagger.js';
+import { generateImage } from './agents/ImageAgent.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-
 app.use(cors());
 app.use(express.json());
+setupSwagger(app);
 
 interface HealthResponse {
     message: string;
