@@ -20,7 +20,7 @@ export class Produto {
   @Column()
   acabamento!: string;
 
-  @Column("simple-array", { nullable: true }) // array de features no formato CSV
+  @Column("simple-array", { nullable: true }) 
   features!: string[];
 
   @Column()

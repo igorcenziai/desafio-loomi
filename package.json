@@ -13,19 +13,28 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/jest": "^30.0.0",
     "@types/node": "^24.3.0",
+    "@types/pg": "^8.15.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   },
   "dependencies": {
+    "@langchain/core": "^0.3.71",
+    "@langchain/mcp-adapters": "^0.6.0",
     "@langchain/openai": "^0.6.8",
     "@modelcontextprotocol/sdk": "^1.17.3",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.1",
+    "express": "^5.1.0",
     "langchain": "^0.3.30",
     "node-fetch": "^3.3.2",
     "openai": "^5.12.2",
     "pg": "^8.16.3",
     "reflect-metadata": "^0.2.2",
+    "tsyringe": "^4.10.0",
     "typeorm": "^0.3.25",
     "zod": "^3.25.76"
   },
