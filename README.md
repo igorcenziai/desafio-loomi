@@ -24,7 +24,7 @@ Este projeto é um chat inteligente que recomenda tintas e exibe imagens simulan
 1. **Clone o repositório:**
    ```bash
    git clone https://github.com/igorcenziai/desafio-loomi.git
-   cd desafio-loomi/tintas-mcp
+   cd desafio-loomi/
    ```
 
 2. **Configure as variáveis de ambiente:**

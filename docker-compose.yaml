@@ -18,6 +18,8 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    networks:
+      - suvinil_network
 
   seed:
     build: .
@@ -34,6 +36,8 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     command: ["node", "dist/seeds/produto.seed.js"]
     restart: "no"
+    networks:
+      - suvinil_network
 
   app:
     build: .
@@ -56,6 +60,14 @@ services:
     ports:
       - "${APP_PORT}:3000"
     command: ["node", "dist/index.js"]
+    networks:
+      - suvinil_network
 
 volumes:
   postgres_data:
+
+networks:
+  suvinil_network:
+    name: suvinil_network
+    driver: bridge
+    external: false
