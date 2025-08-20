@@ -13,6 +13,7 @@ yarn-error.log*
 
 # Arquivos de ambiente
 *.env
+env.json
 
 # Arquivos do TypeScript
 *.tsbuildinfo

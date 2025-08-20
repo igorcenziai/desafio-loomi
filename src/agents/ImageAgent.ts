@@ -1,11 +1,13 @@
 import OpenAI from "openai"
-import dotenv from "dotenv"
-
-dotenv.config()
+import { getEnvironmentData } from "../utils/environment.js"
 
 export async function generateImage(descricaoAmbiente: string) {
+
+    const vars = getEnvironmentData();
+
+    const OPENAI_API_KEY = process.env.OPENAI_API_KEY || ""
     const openai = new OpenAI({
-        apiKey: process.env.OPENAI_API_KEY || "",
+        apiKey: vars.OPENAI_API_KEY,
     })
 
     const prompt = `

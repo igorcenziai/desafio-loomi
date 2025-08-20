@@ -1,21 +1,20 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 import { Produto } from '../../entities/Produto.js';
-import * as dotenv from "dotenv";
+import { getEnvironmentData } from "../../utils/environment.js";
 
-dotenv.config();
 
-const isProd = process.env.NODE_ENV === "production";
+const vars = getEnvironmentData();
 
 export const AppDataSource = new DataSource({
   type: "postgres",
-  host: isProd ? (process.env.DB_HOST || "localhost") : "localhost",
-  port: Number(process.env.POSTGRES_PORT) || 5432,
-  username: isProd ? (process.env.POSTGRES_USER || "postgres") : "postgres",
-  password: isProd ? (process.env.POSTGRES_PASSWORD || "postgres") : "postgres",
-  database: process.env.POSTGRES_DB || "tintas",
-  synchronize: !isProd,
-  logging: !isProd,
+  host: vars.POSTGRES_HOST ?? "",
+  port: vars.POSTGRES_PORT ?? 5432,
+  username: vars.POSTGRES_USER ?? "",
+  password: vars.POSTGRES_PASSWORD ?? "",
+  database: vars.POSTGRES_DB ?? "",
+  synchronize: true,
+  logging: vars.NODE_ENV !== "production",
   entities: [Produto],
   migrations: [],
   subscribers: [],
