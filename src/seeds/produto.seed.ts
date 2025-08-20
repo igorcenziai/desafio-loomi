@@ -20,7 +20,7 @@ async function ensureDatabaseExists() {
     port: DB_PORT,
     user: DB_USER,
     password: DB_PASSWORD,
-    database: DB_NAME,
+    database: 'postgres',
   });
 
   await client.connect();
@@ -39,7 +39,7 @@ async function ensureDatabaseExists() {
 }
 
 async function seed() {
-  await ensureDatabaseExists(); 
+  await ensureDatabaseExists();
   await AppDataSource.initialize();
 
   const repo = AppDataSource.getRepository(Produto);
@@ -53,8 +53,23 @@ async function seed() {
     { nome: "Suvinil Fachada Acrílica", cor: "Azul Sereno", tipo_parede: "Alvenaria", ambiente: "Externo", acabamento: "Fosco", features: ["Resistente à chuva e sol", "Anti-mofo", "Lavável"], linha: "Premium" },
   ];
 
-  await repo.save(produtos);
-  console.log("✅ Seed executado com sucesso!");
+  const produtosParaInserir = [];
+  for (const produto of produtos) {
+    const exists = await repo.findOne({ where: { nome: produto.nome } });
+    if (!exists) {
+      produtosParaInserir.push(produto);
+    } else {
+      console.log(`Produto já existe e será ignorado: ${produto.nome}`);
+    }
+  }
+
+  if (produtosParaInserir.length > 0) {
+    await repo.save(produtosParaInserir);
+    console.log(`✅ ${produtosParaInserir.length} produto(s) inserido(s) com sucesso!`);
+  } else {
+    console.log("✅ Nenhum produto novo para inserir.");
+  }
+
   await AppDataSource.destroy();
 }
 
