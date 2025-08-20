@@ -1,0 +1,10 @@
+{
+  "POSTGRES_DB": "tintas",
+  "POSTGRES_USER": "postgres",
+  "POSTGRES_PASSWORD": "postgres",
+  "POSTGRES_PORT": 5432,
+  "POSTGRES_HOST": "db",
+  "NODE_ENV": "development",
+  "APP_PORT": 3000,
+  "OPENAI_API_KEY": "api key"
+}

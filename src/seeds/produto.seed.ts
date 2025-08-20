@@ -1,18 +1,17 @@
 import { AppDataSource } from '../infra/database/data-source.js';
 import { Produto } from '../entities/Produto.js';
 import pkg from 'pg';
-import dotenv from 'dotenv';
 const { Client } = pkg;
+import { getEnvironmentData } from '../utils/environment.js';
 
-dotenv.config();
-
+const vars = getEnvironmentData();
 
 async function ensureDatabaseExists() {
-  const DB_HOST = process.env.POSTGRES_HOST || "localhost";
-  const DB_PORT = Number(process.env.POSTGRES_PORT) || 5432;
-  const DB_USER = process.env.POSTGRES_USER || "postgres";
-  const DB_PASSWORD = process.env.POSTGRES_PASSWORD || "postgres";
-  const DB_NAME = process.env.POSTGRES_DB || "tintas";
+  const DB_HOST = vars.POSTGRES_HOST;
+  const DB_PORT = vars.POSTGRES_PORT;
+  const DB_USER = vars.POSTGRES_USER;
+  const DB_PASSWORD = vars.POSTGRES_PASSWORD;
+  const DB_NAME = vars.POSTGRES_DB;
 
   console.log(`Verificando se o banco de dados '${DB_NAME}' existe...`);
 

@@ -7,7 +7,8 @@
     "dev": "ts-node-esm src/index.ts",
     "build": "tsc",
     "start": "tsc && node dist/index.js",
-    "seed": "ts-node-esm src/seeds/produto.seed.ts"
+    "seed": "ts-node-esm src/seeds/produto.seed.ts",
+    "migration:run": "ts-node-esm ./node_modules/typeorm/cli.js migration:run -d ./src/infra/database/data-source.ts"
   },
   "keywords": [],
   "author": "",

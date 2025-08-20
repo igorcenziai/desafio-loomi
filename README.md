@@ -4,7 +4,7 @@ Projeto desenvolvido para o desafio Loomi, focado em gerenciamento de tintas e s
 
 ## 🚀 Descrição
 
-Este projeto é uma API desenvolvida em Node.js para cadastro, consulta e manipulação de tintas. Utiliza PostgreSQL como banco de dados e integrações modernas para garantir escalabilidade e facilidade de uso.
+Este projeto é um chat inteligente que recomenda tintas e exibe imagens simulando a aplicação das cores. Desenvolvido com Node.js, utiliza LangChain e OpenAI para processamento de linguagem natural, além de tools personalizadas integradas ao MCP Server para gerar recomendações e visualizações realistas.
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -13,27 +13,11 @@ Este projeto é uma API desenvolvida em Node.js para cadastro, consulta e manipu
 - Express
 - PostgreSQL
 - Docker
-- Prisma ORM
+- TypeORM
 - OpenAI API
+- Langchain
+- Model Context Protocol
 
-## 📦 Estrutura de Pastas
-
-```
-tintas-mcp/
-├── src/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── services/
-│   └── utils/
-├── prisma/
-│   └── schema.prisma
-├── .env.example
-├── Dockerfile
-├── docker-compose.yml
-├── package.json
-└── README.md
-```
 
 ## 📥 Como baixar e rodar o projeto
 
@@ -45,6 +29,7 @@ tintas-mcp/
 
 2. **Configure as variáveis de ambiente:**
    - Renomeie `.env.example` para `.env` e ajuste conforme necessário.
+   - Renomeio `env-example.json` para `env.json` e ajuste conforme necessário.
 
 3. **Suba os containers com Docker:**
    ```bash
@@ -56,19 +41,21 @@ tintas-mcp/
    npm install
    ```
 
-5. **Execute as migrações do banco:**
+5. **Inicie a aplicação:**
    ```bash
-   npx prisma migrate dev
+   npm start
    ```
 
-6. **Inicie a aplicação:**
-   ```bash
-   npm run dev
+**Para rodar com docker**
+
+Execute o comando:
+ ```bash
+   docker-compose up -d --build
    ```
 
 ## 📚 Documentação
 
-- As rotas e funcionalidades estão documentadas via Swagger (caso implementado) ou diretamente nos controllers.
+- As rotas e funcionalidades estão documentadas via Swagger.
 
 ## 🤝 Contribuição
 

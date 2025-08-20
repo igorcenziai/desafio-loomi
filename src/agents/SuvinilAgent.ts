@@ -3,17 +3,14 @@ import { initializeAgentExecutorWithOptions } from "langchain/agents"
 import { Client } from "@modelcontextprotocol/sdk/client/index.js"
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js"
 import { DynamicTool } from "langchain/tools"
-import dotenv from "dotenv"
 import { z } from "zod"
 import { description as MCPTintasDescription } from "../tools/Tintas.tool.js"
 import { description as MCPImagesDescription } from "../tools/Images.tool.js"
 import { 
-    conversationMemory, 
     memoryHelpers, 
     createLangChainMemory 
 } from "./memory/memory.config.js"
 
-dotenv.config()
 
 const ProductFiltersSchema = z.object({
     nome: z.string().optional(),
