@@ -8,12 +8,10 @@ dotenv.config();
 
 
 async function ensureDatabaseExists() {
-  const isProd = process.env.NODE_ENV === "production";
-
-  const DB_HOST = isProd ? (process.env.DB_HOST || "localhost") : "localhost";
+  const DB_HOST = process.env.POSTGRES_HOST || "localhost";
   const DB_PORT = Number(process.env.POSTGRES_PORT) || 5432;
-  const DB_USER = isProd ? (process.env.POSTGRES_USER || "postgres") : "postgres";
-  const DB_PASSWORD = isProd ? (process.env.POSTGRES_PASSWORD || "postgres") : "postgres";
+  const DB_USER = process.env.POSTGRES_USER || "postgres";
+  const DB_PASSWORD = process.env.POSTGRES_PASSWORD || "postgres";
   const DB_NAME = process.env.POSTGRES_DB || "tintas";
 
   console.log(`Verificando se o banco de dados '${DB_NAME}' existe...`);

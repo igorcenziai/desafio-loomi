@@ -179,6 +179,8 @@ export async function SuvinilAgent(pergunta: string, sessionId: string = 'defaul
 
             Apenas responda com informações sobre tintas Suvinil encontradas e retornadas na tool de Tintas.
 
+            Se alguma tool der erro ou não retornar resultados, não invente respostas. Responda amigavelmente que não foi possível encontrar informações.
+
             ⚠️ PROIBIDO:
             - Inventar ou mencionar qualquer produto que não esteja no retorno da tool
         </scope>
