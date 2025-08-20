@@ -58,7 +58,7 @@ async function main() {
                     features,
                     linha,
                 } as ProductFilters
-                const produtos = await getProducts(filter)
+                const produtos = await getProducts(filter,10)
 
                 const textoProdutos = produtos.map((p) => `Produto: ${p.nome}\nCor: ${p.cor}\nTipo de parede: ${p.tipo_parede}\nAmbiente: ${p.ambiente}\nAcabamento: ${p.acabamento}\nCaracterísticas: ${p.features?.join(", ")}\nLinha: ${p.linha}\n`).join("\n---\n")
 
