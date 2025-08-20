@@ -3,7 +3,6 @@ import { getProducts } from "../repositories/produtoRepository.js"
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod"
-import "dotenv/config"
 import type { ProductFilters } from "../interfaces/ProductFilters.js"
 
 export const description = `

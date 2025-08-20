@@ -6,7 +6,7 @@ export async function getProducts(
   filters?: ProductFilters,
   limit?: number
 ) {
-  await AppDataSource.initialize();
+    await AppDataSource.initialize();
   const repo = AppDataSource.getRepository(Produto);
   const query = repo.createQueryBuilder("produto");
 
